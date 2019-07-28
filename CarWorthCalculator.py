@@ -1,10 +1,14 @@
 
 import calendar
+import fileinput
 
 #Ask purchase price here and ask once
 m = int(input("What month did you purchase this car? "))
 year = int(input("What year did you buy the car? "))
 Purchase = input("What is the puchase price of the car? $")
+month = ["January", "Febuaury", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December",]
+iterateMonth = iter(month)
+nextyear = year + 1
 #print("Make sure your earning from this car brings you the "Asset Value"")
 
 def carWorth():
@@ -13,9 +17,12 @@ print("The purchase price of this car = " + "$" + Purchase)
 print("The \"Asset Value\" of this car = " + "$" + str(carWorth()) + " (This value is calculated by multiply the purchase price by 3)")
 print("")
 
-for month in calendar.month_name[m:]:
-    print(month, year)
-
+            #New Question Line
+for m in month:
+    if m == 12:
+        print(month, nextyear)
+    else:
+        print(next(iterateMonth), year)
 
 
 
@@ -41,6 +48,6 @@ for month in calendar.month_name[m:]:
         return int(Purchase) - int(CarPayments)
     print("The remaining payment for this car = " + "$" + str(remainingCostofCar()))
     print("")
-
-
-
+    print("")
+    print("")
+    print("")
